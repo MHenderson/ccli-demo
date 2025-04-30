@@ -1,2 +1,15 @@
+test: queen
+
+queen: results/queen16_16.out
+
 results/queen16_16.out:
-	ccli greedy --type="simple" --ordering="decdeg" --seed=42 --kempe ${QUEEN_GRAPHS_PATH}/queen16_16.col > $@
+	mkdir results
+	export PATH:${PATH}:/opt/docopts:/opt/ccli && greedy --type="simple" --ordering="decdeg" --seed=42 --kempe graphs/queen16_16.col > $@;
+	mv graphs/queen16_16.col.res results
+
+clean:
+	rm results/*
+
+install-ccli:
+	git clone https://github.com/MHenderson/ccli
+	cd ccli && make install
