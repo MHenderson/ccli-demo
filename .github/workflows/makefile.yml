@@ -14,5 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Install ccli
+      run: make install-ccli
+
     - name: Run tests
       run: make test
