@@ -8,3 +8,7 @@ results/queen16_16.out:
 
 clean:
 	rm results/*
+
+install-ccli:
+	git clone https://github.com/MHenderson/ccli
+	cd ccli && make install
